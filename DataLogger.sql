@@ -22,6 +22,11 @@ USE `DataLogger`;
 --
 -- Table structure for table `ADS1115Table`
 --
+/*
+
+
+
+
 
 DROP TABLE IF EXISTS `ADS1115Table`;
 CREATE TABLE IF NOT EXISTS `ADS1115Table` (
@@ -58,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `INA3221Table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
-
+*/
 --
 -- Table structure for table `OURWEATHERTable`
 --
@@ -70,38 +75,41 @@ CREATE TABLE IF NOT EXISTS `OURWEATHERTable` (
   `deviceid` int(11) NOT NULL,
   `Outdoor_Temperature` float NOT NULL,
   `Outdoor_Humidity` float NOT NULL,
-  `Indoor_Temperature` float NOT NULL,
+  -- `Indoor_Temperature` float NOT NULL,
   `Barometric_Pressure` float NOT NULL,
-  `Altitude` float NOT NULL,
+  -- `Altitude` float NOT NULL,
   `Current_Wind_Speed` float NOT NULL,
   `Current_Wind_Gust` float NOT NULL,
   `Current_Wind_Direction` float NOT NULL,
-  `Rain_Total` float NOT NULL,
-  `Wind_Speed_Minimum` float NOT NULL,
+  -- `Rain_Total` float NOT NULL,
+ --  `Wind_Speed_Minimum` float NOT NULL,
   `Wind_Speed_Maximum` float NOT NULL,
-  `Wind_Gust_Minimum` float NOT NULL,
+  -- `Wind_Gust_Minimum` float NOT NULL,
   `Wind_Gust_Maximum` float NOT NULL,
-  `Wind_Direction_Minimum` float NOT NULL,
-  `Wind_Direction_Maximum` float NOT NULL,
-  `Display_English_Metrice` int(11) NOT NULL,
+  --`Wind_Direction_Minimum` float NOT NULL,
+  --`Wind_Direction_Maximum` float NOT NULL,
+  `Display_English_Metric` int(11) NOT NULL,
   `OurWeather_DateTime` varchar(30) NOT NULL,
   `OurWeather_Station_Name` varchar(30) NOT NULL,
-  `Current_Air_Quality_Sensor` int(11) NOT NULL,
-  `Current_Air_Quality_Qualitative` int(11) NOT NULL,
-  `Battery_Voltage` float NOT NULL,
-  `Battery_Current` float NOT NULL,
-  `Solar_Voltage` float NOT NULL,
-  `Solar_Current` float NOT NULL,
-  `Load_Voltage` float NOT NULL,
-  `Load_Current` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='OurWeather FullDataString';
+  --`Current_Air_Quality_Sensor` int(11) NOT NULL,
+  --`Current_Air_Quality_Qualitative` int(11) NOT NULL,
+  --`Battery_Voltage` float NOT NULL,
+  --`Battery_Current` float NOT NULL,
+  --`Solar_Voltage` float NOT NULL,
+  --`Solar_Current` float NOT NULL,
+  --`Load_Voltage` float NOT NULL,
+  --`Load_Current` float NOT NULL,
+  `Lightning_Time` varchar(30) NOT NULL,
+  `Lightning_Distance` int(11)  NOT NULL,
+  `Lightning_Count` int(30)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='OurWeather DataLoggerDataString';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `ThreePanelTestTable`
 --
-
+/*
 DROP TABLE IF EXISTS `ThreePanelTestTable`;
 CREATE TABLE IF NOT EXISTS `ThreePanelTestTable` (
 `id` int(11) NOT NULL,
@@ -144,11 +152,11 @@ CREATE TABLE IF NOT EXISTS `WXLINKTable` (
   `Time_Since_Reboot` int(11) NOT NULL,
   `AuxA` float NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11890 DEFAULT CHARSET=latin1 COMMENT='WXLIINK Dump data';
-
+*/
 --
 -- Indexes for dumped tables
 --
-
+/*
 --
 -- Indexes for table `ADS1115Table`
 --
@@ -160,13 +168,13 @@ ALTER TABLE `ADS1115Table`
 --
 ALTER TABLE `INA3221Table`
  ADD PRIMARY KEY (`id`);
-
+*/
 --
 -- Indexes for table `OURWEATHERTable`
 --
 ALTER TABLE `OURWEATHERTable`
  ADD PRIMARY KEY (`ID`);
-
+/*
 --
 -- Indexes for table `ThreePanelTestTable`
 --
@@ -178,11 +186,11 @@ ALTER TABLE `ThreePanelTestTable`
 --
 ALTER TABLE `WXLINKTable`
  ADD PRIMARY KEY (`ID`), ADD KEY `ID` (`ID`);
-
+*/
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
+/*
 --
 -- AUTO_INCREMENT for table `ADS1115Table`
 --
@@ -195,12 +203,13 @@ ALTER TABLE `INA3221Table`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `OURWEATHERTable`
---
+--  */
 ALTER TABLE `OURWEATHERTable`
 MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ThreePanelTestTable`
---
+-- 
+ /*
 ALTER TABLE `ThreePanelTestTable`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
@@ -208,3 +217,4 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `WXLINKTable`
 MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11890;
+*/
