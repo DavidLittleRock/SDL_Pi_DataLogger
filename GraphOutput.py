@@ -101,8 +101,8 @@ def build_temperature_and_humidity_graph(username, password, my_graph_sample_cou
 
         pyplot.savefig('/var/www/html/TemperatureAndHumidityGraph' + str(days) + '.png', facecolor=fig.get_facecolor())
 
-    pyplot.show()
-    mycursor.close()
+#    pyplot.show()
+    my_cursor.close()
     con1.close()
     fig.clf()
     pyplot.close()
@@ -148,17 +148,17 @@ def build_wind_graph(username, password, my_graph_sample_count):
     ax.set_xlabel('Time')
     ax.set_ylabel('Wind (mph)')
     ax.legend(loc='upper left')
-    ax.axis([dates.date2num(datetime.now()) - 2, dates.date2num(datetime.now()), 0, max(gustSG) + 1])
+    ax.axis([dates.date2num(datetime.now()) - 2, dates.date2num(datetime.now()), 0, max(gust_sg) + 1])
 
     ax2 = ax.twinx()
     ax2.plot(fds, gust_sg, color='blue', label='Wind Gust (mph)', linestyle='-.', marker='.')
     ax2.legend(loc='upper right')
-    ax2.axis([dates.date2num(datetime.now()) - 2, dates.date2num(datetime.now()), 0, max(gustSG) + 1])
+    ax2.axis([dates.date2num(datetime.now()) - 2, dates.date2num(datetime.now()), 0, max(gust_sg) + 1])
 
     pyplot.figtext(0.9, 0.9, ('Average Windspeed {AveWind:6.2f}\n{time}').format(AveWind=average_wind_speed,
                                                                                  time=datetime.strftime(dz, '%c')),
                    fontsize=12, ha='center')
-    pyplot.show()
+#     pyplot.show()
     pyplot.savefig("/var/www/html/WindAndGustGraph.png", facecolor=fig.get_facecolor())
 
     my_cursor.close()
@@ -243,7 +243,7 @@ def build_barometric_pressure_graph(username, password, my_graph_sample_count):
     ax.axis([dates.date2num(datetime.now()) - 7, dates.date2num(datetime.now()), min_pres, max_pres])
     ax.grid(True)
 
-    pyplot.show()
+#     pyplot.show()
     pyplot.savefig("/var/www/html/barometricPressureGraph.png", facecolor=fig.get_facecolor())
 
     my_cursor.close()
@@ -298,10 +298,10 @@ def build_max_min_temperature_graph(username, password, my_graph_sample_count):
     ax2.plot(time, min_temperature, color='b', label="Min Temp (F)", linestyle="-", marker=".")
     ax2.axis([dates.date2num(datetime.now()) - 30, dates.date2num(datetime.now()), 10, 110])
     ax2.legend(loc='upper right')
-    pyplot.show()
+#     pyplot.show()
     pyplot.savefig("/var/www/html/MaxMinTemperatureGraph.png", facecolor=fig.get_facecolor())
 
-    mycursor.close()
+    my_cursor.close()
     con1.close()
     fig.clf()
     pyplot.close()
@@ -376,7 +376,7 @@ def build_rain_graph(username, password, my_graph_sample_count):
             rain_period_a.append(record[2] / 22.5)
             rain_total_a.append(sum(rain_period_a))
         print ("count of time=", len(time))
-        if len(timeA) != 0:
+        if len(time_a) != 0:
             time += time_a
             rain_period += rain_period_a
             rain_total += rain_total_a
@@ -408,7 +408,7 @@ def build_rain_graph(username, password, my_graph_sample_count):
     ax2.axis([dates.date2num(datetime.now()) - 6, dates.date2num(datetime.now()), 0, max(rain_total) + 0.1])
 
     pyplot.savefig('/var/www/html/RainGraph.png', facecolor=fig.get_facecolor())
-    pyplot.show()
+#    pyplot.show()
 
     my_cursor.close()
     con1.close()
