@@ -90,7 +90,7 @@ def makeGraph():
     GraphOutput.buildTemperatureAndHumidityGraph(username, password, 5100)
     GraphOutput.buildWindGraph(username, password, 5100)
     GraphOutput.buildBarometricPressureGraph(username, password, 15000)
-    GraphOutput.buildMaxMinTemperatureGraph(username, password, 30)
+    GraphOutput.buildMaxMinTemperatureGraph(username, password, 40)
     GraphOutput.buildRainGraph(username, password, 5100)
 
 
