@@ -82,7 +82,7 @@ def write_to_db(w_data_2):
 
     device_id = 5
     query = 'INSERT INTO ' + dataBaseTable + (
-                '(timestamp, device_id, Outdoor_Temperature , Outdoor_Humidity , Barometric_Pressure , Current_Wind_Speed , Current_Wind_Gust , Current_Wind_Direction , Wind_Speed_Maximum , Wind_Gust_Maximum , OurWeather_DateTime , Lightning_Time , Lightning_Distance , Lightning_Count , Rain_Total , Rain_Now) VALUES(CURRENT_TIMESTAMP,  %i, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, "%s", "%s", %i, %i, %.2f, %.3f)' % (
+                '(timestamp, deviceid, Outdoor_Temperature , Outdoor_Humidity , Barometric_Pressure , Current_Wind_Speed , Current_Wind_Gust , Current_Wind_Direction , Wind_Speed_Maximum , Wind_Gust_Maximum , OurWeather_DateTime , Lightning_Time , Lightning_Distance , Lightning_Count , Rain_Total , Rain_Now) VALUES(CURRENT_TIMESTAMP,  %i, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f, "%s", "%s", %i, %i, %.2f, %.3f)' % (
         int(device_id), float(w_data_2[0]), float(w_data_2[1]), float(w_data_2[2]), float(w_data_2[3]), float(w_data_2[4]),
         float(w_data_2[5]), float(w_data_2[7]), float(w_data_2[8]), w_data_2[9], w_data_2[10], int(w_data_2[11]), int(w_data_2[12]),
         float(w_data_2[6]), float(w_data_2[13])))

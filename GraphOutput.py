@@ -1,5 +1,7 @@
 import gc  # python garbage collector
 import matplotlib
+matplotlib.use('Agg')  # Force matplotlib to not use any Xwindows backend.
+
 from matplotlib import pyplot
 from matplotlib import dates
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
@@ -14,7 +16,6 @@ import MySQLdb as mdb
 import scipy
 from scipy import signal
 
-matplotlib.use('Agg')  # Force matplotlib to not use any Xwindows backend.
 dataBaseName = 'DataLogger'
 dataBaseTable = 'OURWEATHERTable'
 username = 'datalogger'  # mySQL user
@@ -130,6 +131,7 @@ def build_wind_graph(username, password, my_graph_sample_count):
         time.append(record[0])
         wind_speed.append(record[2] * 0.621)  # convert kph to mph
         gust.append(record[3] * 0.621)
+    print_ts(msg=len(time))
     average_wind_speed = mean(wind_speed)
     wind_speed_sg = []
     gust_sg = []
@@ -158,7 +160,7 @@ def build_wind_graph(username, password, my_graph_sample_count):
     pyplot.figtext(0.9, 0.9, ('Average Windspeed {AveWind:6.2f}\n{time}').format(AveWind=average_wind_speed,
                                                                                  time=datetime.strftime(dz, '%c')),
                    fontsize=12, ha='center')
-#     pyplot.show()
+    pyplot.show()
     pyplot.savefig("/var/www/html/WindAndGustGraph.png", facecolor=fig.get_facecolor())
 
     my_cursor.close()
@@ -254,9 +256,6 @@ def build_barometric_pressure_graph(username, password, my_graph_sample_count):
     gc.collect()
     print ("------baromrtricPressureGraph finished now-----------------")
 
-
-#
-#
 
 def build_max_min_temperature_graph(username, password, my_graph_sample_count):
     dz = datetime.now()
