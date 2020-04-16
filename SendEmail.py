@@ -96,7 +96,7 @@ def getRain():
     con1 = mdb.connect('localhost', username, password, dataBaseName )
     # now we have to get the data, stuff it in the graph 
     mycursor = con1.cursor()
-    query = '(SELECT OurWeather_DateTime, SUM(Rain_Change)/22.5 FROM Rain_Period WHERE DATE(OurWeather_DateTime) =  Current_Date - 1) ' # ORDER BY Date  LIMIT 12
+    query = '(SELECT timestamp, SUM(Rain_Change)/22.5 FROM RainPeriod WHERE DATE(timestamp) =  Current_Date - 1) ' # ORDER BY Date  LIMIT 12
 
     print ("query=", query)
     try:
